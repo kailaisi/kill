@@ -13,4 +13,5 @@ interface OrderService {
     fun createOptimisticOrder(sid: Int): Int
 
     fun createOptimisticOrderUseRedis(sid: Int): Int
+    fun createOptimisticOrderUseRedisRabbit(sid: Int): Int
 }

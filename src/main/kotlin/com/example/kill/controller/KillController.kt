@@ -82,4 +82,21 @@ class KillController {
         return id.toString()
     }
 
+    /**
+     * redis更新库存 限流
+     * @param sid
+     * @return
+     */
+    @RequestMapping("/createOptimisticOrderUseRedisRabbit/{sid}")
+    @GetMapping
+    fun createOptimisticOrderUseRedisRabbit(@PathVariable sid: Int): String {
+        log.info("sid=[{}]", sid)
+        var id = 0
+        try {
+            id = orderService.createOptimisticOrderUseRedisRabbit(sid)
+        } catch (e: Exception) {
+            log.error("Exception", e)
+        }
+        return id.toString()
+    }
 }
